@@ -1,4 +1,5 @@
 
+
 // import { useState, useRef, useEffect } from "react";
 // import { Menu } from "lucide-react";
 // import { motion, AnimatePresence } from "framer-motion";
@@ -6,6 +7,14 @@
 // const Navbar = () => {
 //   const [open, setOpen] = useState(false);
 //   const menuRef = useRef();
+
+//   // 🔥 SCROLL FUNCTION
+//   const scrollToSection = (id) => {
+//     const el = document.getElementById(id);
+//     if (el) {
+//       el.scrollIntoView({ behavior: "smooth" });
+//     }
+//   };
 
 //   // CLICK OUTSIDE CLOSE
 //   useEffect(() => {
@@ -29,22 +38,26 @@
 //       className="bg-[#3b003b] text-white px-6 py-3 relative"
 //     >
 //       <div className="flex items-center justify-between">
-
-//         {/* LEFT MENU */}
-//         <div className="hidden md:flex gap-6 text-sm">
-//           {["Blog", "Services", "Portfolio"].map((item, i) => (
-//             <motion.p
-//               key={i}
-//               whileHover={{ scale: 1.1, color: "#d1d5db" }}
-//               className="cursor-pointer"
-//             >
-//               {item}
-//             </motion.p>
-//           ))}
-//         </div>
+//       <div className="hidden md:flex gap-6 text-sm">
+//   {[
+//     { name: "Blog", id: "imagination" },
+//     { name: "Services", id: "services" },
+//     { name: "Portfolio", id: "Team" },
+//   ].map((item, i) => (
+//     <motion.p
+//       key={i}
+//       onClick={() => scrollToSection(item.id)}
+//       whileHover={{ scale: 1.1, color: "#d1d5db" }}
+//       className="cursor-pointer"
+//     >
+//       {item.name}
+//     </motion.p>
+//   ))}
+// </div>
 
 //         {/* CENTER LOGO */}
 //         <motion.div
+//           onClick={() => scrollToSection("home")}
 //           initial={{ scale: 0.8, opacity: 0 }}
 //           animate={{ scale: 1, opacity: 1 }}
 //           transition={{ delay: 0.3 }}
@@ -60,13 +73,21 @@
 
 //         {/* RIGHT MENU */}
 //         <div className="hidden md:flex items-center gap-6 text-sm">
-//           {["Home", "About Us", "Contact Us"].map((item, i) => (
+//           {[
+//             { name: "Home", id: "home" },
+//             { name: "About Us", id: "about" },
+//             { name: "Contact Us", id: "contact" },
+           
+//           ].map((item, i) => (
 //             <motion.p
 //               key={i}
+//               onClick={() => scrollToSection(item.id)}
 //               whileHover={{ scale: 1.1, color: "#d1d5db" }}
-//               className={i === 0 ? "border-b border-white pb-1 cursor-pointer" : "cursor-pointer"}
+//               className={`cursor-pointer ${
+//                 i === 0 ? "border-b border-white pb-1" : ""
+//               }`}
 //             >
-//               {item}
+//               {item.name}
 //             </motion.p>
 //           ))}
 
@@ -101,9 +122,9 @@
 //             className="absolute right-4 top-14 bg-white text-black rounded-lg shadow-lg w-44 py-3 z-50"
 //           >
 //             {[
-//               "Home",
-//               "About Us",
-//               "Contact Us",
+//               { name: "Home", id: "home" },
+//               { name: "About Us", id: "about" },
+//               { name: "Contact Us", id: "contact" },
 //               "divider",
 //               "Blog",
 //               "Services",
@@ -115,10 +136,15 @@
 //                 <motion.p
 //                   key={i}
 //                   whileHover={{ x: 5, backgroundColor: "#f3f4f6" }}
-//                   onClick={() => setOpen(false)}
+//                   onClick={() => {
+//                     if (typeof item !== "string") {
+//                       scrollToSection(item.id);
+//                     }
+//                     setOpen(false);
+//                   }}
 //                   className="px-4 py-2 cursor-pointer"
 //                 >
-//                   {item}
+//                   {typeof item === "string" ? item : item.name}
 //                 </motion.p>
 //               )
 //             )}
@@ -166,25 +192,27 @@ const Navbar = () => {
       initial={{ y: -60, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6 }}
-      className="bg-[#3b003b] text-white px-6 py-3 relative"
+      className="bg-[#3b003b] text-white px-6 py-3 fixed top-0 left-0 w-full z-50 shadow-md"
     >
       <div className="flex items-center justify-between">
-      <div className="hidden md:flex gap-6 text-sm">
-  {[
-    { name: "Blog", id: "imagination" },
-    { name: "Services", id: "services" },
-    { name: "Portfolio", id: "Team" },
-  ].map((item, i) => (
-    <motion.p
-      key={i}
-      onClick={() => scrollToSection(item.id)}
-      whileHover={{ scale: 1.1, color: "#d1d5db" }}
-      className="cursor-pointer"
-    >
-      {item.name}
-    </motion.p>
-  ))}
-</div>
+
+        {/* LEFT MENU */}
+        <div className="hidden md:flex gap-6 text-sm">
+          {[
+            { name: "Blog", id: "imagination" },
+            { name: "Services", id: "services" },
+            { name: "Portfolio", id: "Team" },
+          ].map((item, i) => (
+            <motion.p
+              key={i}
+              onClick={() => scrollToSection(item.id)}
+              whileHover={{ scale: 1.1, color: "#d1d5db" }}
+              className="cursor-pointer"
+            >
+              {item.name}
+            </motion.p>
+          ))}
+        </div>
 
         {/* CENTER LOGO */}
         <motion.div
@@ -206,9 +234,8 @@ const Navbar = () => {
         <div className="hidden md:flex items-center gap-6 text-sm">
           {[
             { name: "Home", id: "home" },
-            { name: "About Us", id: "about" },
+            { name: "About Us", id: "imagination" },
             { name: "Contact Us", id: "contact" },
-           
           ].map((item, i) => (
             <motion.p
               key={i}
@@ -257,9 +284,9 @@ const Navbar = () => {
               { name: "About Us", id: "about" },
               { name: "Contact Us", id: "contact" },
               "divider",
-              "Blog",
-              "Services",
-              "Portfolio",
+              { name: "Blog", id: "imagination" },
+              { name: "Services", id: "services" },
+              { name: "Portfolio", id: "team" },
             ].map((item, i) =>
               item === "divider" ? (
                 <hr key={i} className="my-2" />
@@ -268,14 +295,12 @@ const Navbar = () => {
                   key={i}
                   whileHover={{ x: 5, backgroundColor: "#f3f4f6" }}
                   onClick={() => {
-                    if (typeof item !== "string") {
-                      scrollToSection(item.id);
-                    }
+                    scrollToSection(item.id);
                     setOpen(false);
                   }}
                   className="px-4 py-2 cursor-pointer"
                 >
-                  {typeof item === "string" ? item : item.name}
+                  {item.name}
                 </motion.p>
               )
             )}

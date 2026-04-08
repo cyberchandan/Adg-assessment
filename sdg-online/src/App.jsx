@@ -10,8 +10,9 @@ import Footer from "./components/Footer";
 
 function App() {
   return (
-    <>
-      <Navbar />
+    <><div className="mt-16">
+    {/* all sections */}
+    <Navbar />
       <section id="home">
         <Hero />
       </section>
@@ -35,6 +36,8 @@ function App() {
         <Contact />
       </section>
       <Footer/>
+  </div>
+      
     </>
   );
 }
