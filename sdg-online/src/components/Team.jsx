@@ -1,4 +1,3 @@
-
 import { FaCoffee, FaCode, FaPaintBrush, FaUser } from "react-icons/fa";
 
 const Team = () => {
@@ -11,8 +10,8 @@ const Team = () => {
 
   return (
     <section className="mt-20 px-16 text-center">
-      
-     
+
+      {/* HEADING */}
       <div className="flex items-center justify-center gap-6 mb-10">
         <div className="w-20 h-[1px] bg-gray-400"></div>
 
@@ -23,7 +22,7 @@ const Team = () => {
         <div className="w-20 h-[1px] bg-gray-400"></div>
       </div>
 
-      {/* ICON STATS */}
+      {/* STATS */}
       <div className="grid md:grid-cols-4 gap-12">
         {data.map((item, i) => (
           <div key={i} className="flex flex-col items-center">
@@ -33,13 +32,13 @@ const Team = () => {
               {item.icon}
             </div>
 
-          
+            {/* VALUE */}
             <p className="text-lg font-semibold">
               {item.value}
             </p>
 
-         
-            <p className="text-sm text-gray-700 text-center">
+            {/* LABEL */}
+            <p className="text-sm text-gray-700">
               {item.label}
             </p>
 
@@ -47,7 +46,7 @@ const Team = () => {
         ))}
       </div>
 
-      
+      {/* BOTTOM LINE */}
       <div className="flex items-center justify-center gap-4 mt-10">
         <div className="w-16 h-[1px] bg-gray-400"></div>
         <p className="text-sm text-gray-500">Quality Over Quantity</p>
