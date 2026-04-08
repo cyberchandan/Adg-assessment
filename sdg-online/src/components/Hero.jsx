@@ -1,33 +1,33 @@
 
 const Hero = () => {
   return (
-    <section className="relative text-center py-12 bg-[#f4efef] overflow-hidden">
+    <section className="relative text-center py-12 overflow-hidden">
 
       {/* LEFT DOODLES */}
       <img
         src="https://cdn-icons-png.flaticon.com/512/1828/1828911.png"
-        className="absolute left-10 top-20 w-20 opacity-40"
-      />
+        className="hidden md:block absolute left-0 top-20 w-16 opacity-30"
+        />
       <img
         src="https://cdn-icons-png.flaticon.com/512/1828/1828925.png"
-        className="absolute left-10 bottom-20 w-20 opacity-40"
+        className="hidden md:block absolute left-0 bottom-10 w-16 opacity-30"
       />
 
       {/* RIGHT DOODLES */}
       <img
         src="https://cdn-icons-png.flaticon.com/512/1828/1828961.png"
-        className="absolute right-10 top-32 w-20 opacity-40"
+        className="hidden md:block absolute right-0 top-20 w-16 opacity-30"
       />
       <img
         src="https://cdn-icons-png.flaticon.com/512/1828/1828970.png"
-        className="absolute right-10 bottom-24 w-20 opacity-40"
+        className="hidden md:block absolute right-0 bottom-10 w-16 opacity-30"
       />
 
       {/* MAIN IMAGE */}
-      <div className="relative w-[720px] mx-auto">
+      <div className="relative w-full max-w-[720px] mx-auto px-4">
         <img
           src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e"
-          className="w-full rounded-md shadow-md"
+          className="w-full h-[220px] sm:h-[300px] md:h-[400px] object-cover rounded-md shadow-md"
         />
 
 {/* TOP RIGHT SHAPE */}
