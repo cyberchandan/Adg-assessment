@@ -2,17 +2,17 @@
 const services = [
   {
     title: "BRAND IDENTITY",
-    img: "https://cdn-icons-png.flaticon.com/512/3135/3135715.png",
+    img:  "https://cdn-icons-png.flaticon.com/512/4140/4140048.png",
     desc: "Brand identity is the unique combination of visual elements, voice, and values that define how a business presents itself and is perceived by customers.",
   },
   {
     title: "WEB DESIGN & UI",
-    img: "https://cdn-icons-png.flaticon.com/512/1006/1006771.png",
+    img: "https://cdn-icons-png.flaticon.com/512/1055/1055687.png",
     desc: "Web design is the art of planning and creating visually appealing, user-friendly websites that deliver a seamless user experience across devices.",
   },
   {
     title: "DEVELOPMENT & CMS",
-    img: "https://cdn-icons-png.flaticon.com/512/2721/2721273.png",
+    img: "https://cdn-icons-png.flaticon.com/512/2721/2721297.png",
     desc: "Development and CMS solutions empower businesses to build, manage, and update digital platforms efficiently without needing constant technical support.",
   },
 ];
